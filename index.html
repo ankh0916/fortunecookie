@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>fortune cookie</title>
+	<style type="text/css">
+	*{margin: 0px; padding:0px;}
+	 	body{
+	 		background-image: url(background.jpg);  
+	 		background-position: center top;
+	 		background-repeat: no-repeat;
+	 		background-size: 1000px 800px;
+	 	}
+
+	 	img { position: absolute; left: 600px; top:270px; width:380px;}
+	 	#monster{position: absolute; left: 50px; top:200px; width: 200px; }
+	 	#monster2{position: absolute; left: 50px; top:10px; width: 220px; }
+	 	#monster3{position: absolute; left: 40px; top:480px; width: 200px; }
+
+
+		
+		
+	</style>
+</head>
+<body>
+	<img src="a.png" id="monster">
+	<img src="b.png" id="monster2">
+	<img src="c.png" id="monster3">
+	<audio id="sound">
+		<source src="cookie.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="sound2">
+		<source src="sound2.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="sound3">
+		<source src="sound3.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="sound4">
+		<source src="sound4.mp3" type="audio/mpeg">
+	</audio>
+		<script type="text/javascript">
+			
+			var toggle = "off";
+
+		monster.onclick = function(){
+			if(toggle == "off"){
+				toggle = "on";
+				monster.setAttribute("src","a.gif");
+				sound3.currentTime = 0;
+				sound3.play();
+			}
+			else{monster.setAttribute("src","a.png");
+				toggle = "off";
+				sound3.pause();}	
+			}
+
+
+		monster2.onclick = function(){
+			if(toggle == "off"){
+				toggle = "on";
+				monster2.setAttribute("src","b.gif");
+				sound2.currentTime = 0;
+				sound2.play();
+			}
+			else{monster2.setAttribute("src","b.png");
+				toggle = "off";
+				sound2.pause();}	
+			}	
+
+
+			monster3.onclick = function(){
+			if(toggle == "off"){
+				toggle = "on";
+				monster3.setAttribute("src","c.gif");
+				sound4.currentTime = 0;
+				sound4.play();
+			}
+			else{monster3.setAttribute("src","c.png");
+				toggle = "off";
+				sound4.pause();}	
+			}	
+
+
+		function image_onclick(){
+		var arrImage = new Array("1.png", "2.png", "3.png", "4.png", "5.png");
+		var imgSource = document.targetImg;
+		var intRandom = Math.round(Math.random()*4);
+
+		while(imgSource.src.indexOf(arrImage[intRandom]) != -1){
+		intRandom=Math.round(Math.random()*4);
+		}
+	
+		imgSource.src=arrImage[intRandom];
+
+		sound.currentTime = 0;
+				sound.play();
+
+		}
+
+
+		</script>
+		<IMAGE name="targetImg"src='1.png'onclick="image_onclick()">	
+</body>
+</html>
